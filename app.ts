@@ -1,58 +1,29 @@
-class Human {
-    weight: number;
-    height: number;
-    constructor(weight: number, height: number){
-        this.weight = weight;
-        this.height = height;
-    }
-}
+import {Deputy, Faction, VerkhovnaRada} from "./models";
 
-class Deputy extends Human{
-    firstName: string;
-    lastName: string;
-    age: number;
-    bribeTaker: boolean;
-    sizeBribe: number;
-    constructor(firstName: string, lastName: string, age: number, bribeTaker: boolean, sizeBribe: number){
-        super(weigth, heigth);
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.age = age;
-        this.bribeTaker = bribeTaker;
-        this.sizeBribe = sizeBribe;
-    }
-    buyOver(){
+//Create deputy
+const Petro = new Deputy('Petro', 'Savchyk', 28, true, 500000, 75, 178);
+const Oleg = new Deputy('Oleg', 'Hryb', 24, false, 1500000, 80, 165);
+const Oksana = new Deputy('Oksana', 'Hrynyk', 30, true, 2000000, 50, 168);
+const Mykola = new Deputy('Mykola', 'Hlova', 27, false, 500000, 83, 184);
+const Misha = new Deputy('Misha', 'Darmoriz', 32, true, 5000000, 75, 181);
+const Vitalik = new Deputy('Vitalik', 'Petryk', 28, false, 800000, 80, 175);
 
-        if (!this.bribeTaker){
-            console.log('NO');
-        }
-        if (!this.bribeTaker && this.sizeBribe > 1000000) {
-            console.log('Take a bribe $$$');
-        }
-        if (this.bribeTaker){
-            console.log('Take a bribe $$$');
-        }
-    }
-}
+//Create faction
+const factionZelenykh = new Faction([]);
+factionZelenykh.addDeputy(Petro);
+factionZelenykh.addDeputy(Misha);
+factionZelenykh.addDeputy(Mykola);
 
-class Faction {
-    listOfDeputies: string;
-    constructor(listOfDeputies: string){
-        this.listOfDeputies = listOfDeputies;
-    }
+const factionDemocratic = new Faction([]);
+factionDemocratic.addDeputy(Oleg);
+factionDemocratic.addDeputy(Oksana);
+factionDemocratic.addDeputy(Vitalik);
 
-    addDeputy() {
-    }
-    deleteDeputy(){
-    }
-    deleteDeputyBribe(){
-    }
-    getDeputiMaxBribe(){
-    }
-    getAllDeputies(){
-    }
-    deleteAllDeputy(){
-    }
-    getSumBribeFaction(){
-    }
-}
+console.log(factionZelenykh);
+console.log(factionDemocratic);
+
+//Create 'Verhovna Rada'
+const VR = new VerkhovnaRada([]);
+VR.addFaction(factionZelenykh);
+
+console.log(VR);
